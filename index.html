@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My first Tailwind</title>
+  </head>
+  <body id="body">  
+    <div
+      class="flex flex-col bg-slate-900 border-3 space-y-2 border-dashed shadow w-screen font-semibold h-screen items-center justify-center" id="main">
+      <p class="text-2xl font-semibold text-white" id="hellotext">Salut tout le monde!!</p>
+      <p><h1 class="font-medium text-slate-300 text-xl">Welcome to my first web site using Tailwind Css</h1></p>
+      <button class="bg-slate-500 h-8 w-36 font-bold text-white  rounded-lg hover:bg-blue-300 hover:text-slate-200" id="btn">
+        Click here
+      </button>
+      <div id="textfield"></div>
+      <div class="space-y-6 h-14 w-36 bg-white rounded border-2 border-dashed" id="coord"></div>
+      <input type="checkbox" name="chek" id="chek">
+      <h1 class="text-white font-semibold" id="colorcible">Sombre</h1>
+      
+    </div>
+    <script>
+      const btn = document.getElementById('btn')
+      const txtfield = document.getElementById('textfield')
+      const hellotxt = document.getElementById('hellotext')
+      const coord = document.getElementById('coord')
+      btn.addEventListener('click', function(){
+        
+        
+        btn.textContent = 'loading...'
+        setTimeout(function(){
+            alert('Bonjour visiteur...Ceci est mon premier test de TailwindCSS avec javascript!!')
+            btn.textContent = 'click here!'
+          txtfield.innerHTML = ''
+          }, 3000)
+        }
+        )
+      
+      const body = document.getElementById('body')
+      body.addEventListener('mousemove', function(event){
+               var x = event.clientX
+               var y = event.clientY
+               coord.textContent = 'Y: ' + y + '\n' + 'X: ' + x
+      })
+      const main = document.getElementById('main')
+      const chek = document.getElementById('chek')
+      const colorcible = document.getElementById('colorcible')
+      chek.addEventListener('change', function(){
+        if(chek.checked === true){
+          colorcible.textContent = "Clair"
+          colorcible.classList.add('text-slate-900')
+          hellotxt.classList.remove('text-white')
+          hellotxt.classList.add('text-slate-700')
+          colorcible.classList.remove('text-white')
+          main.classList.remove('bg-slate-900')
+          main.classList.add('bg-white')
+          coord.classList.remove('bg-white')
+          coord.classList.add('bg-blue-300')
+
+        }
+        else{
+          colorcible.textContent = "Sombre"
+          colorcible.classList.add('text-white')
+          colorcible.classList.remove('text-slate-900')
+          hellotxt.classList.remove('text-slate-700')
+          hellotxt.classList.add('text-white')
+          main.classList.remove('bg-white')
+          main.classList.add('bg-slate-900')
+          coord.classList.remove('bg-blue-300')
+          coord.classList.add('bg-white')
+          
+        }
+        
+      })
+      
+      
+    </script>
+  </body>
+</html>
